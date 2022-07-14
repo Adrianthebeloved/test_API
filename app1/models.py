@@ -15,14 +15,14 @@ class Employee(models.Model):
     def __str__(self):
         return self.name
 
-# class Employer(models.Model):
-#     name = models.CharField(max_length=250)
-#     salary = models.FloatField()
-#     linkedin = models.URLField()
-#     manager = models.ForeignKey(User, on_delete=models.CASCADE,
-#     related_name='employee')
-#     Company = models.CharField(max_length=350)
-#     company_num = models.CharField(max_length=6, null=True, blank=True)
+class Employer(models.Model):
+    name = models.CharField(max_length=250)
+    salary = models.FloatField()
+    linkedin = models.URLField()
+    manager = models.ForeignKey(User, on_delete=models.CASCADE,
+    related_name='employee')
+    department = models.CharField(max_length=350)
+    company_num = models.CharField(max_length=6, null=True, blank=True)
 
-#     def __str__(self):
-#         return self.name
+    def __str__(self):
+        return self.name
