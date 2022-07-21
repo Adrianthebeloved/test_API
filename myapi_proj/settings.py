@@ -43,8 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app1',
     'rest_framework',
+    'rest_framework.authtoken',
     'account',
-    'drf_yasg'
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -134,3 +135,19 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 AUTH_USER_MODEL = 'account.CustomUser'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' #- this is to actually send the email
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend' #- this is to only print to terminal when testing
+
+DEFAULT_FROM_EMAIL = 'Anthony from Bamboo <noreply@bamboo.com>'
+
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+
+EMAIL_PORT = 587
+
+EMAIL_HOST_USER = os.getenv('EMAIL_USERNAME')
+
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_PASSWORD')
+
+EMAIL_USE_TLS = True
